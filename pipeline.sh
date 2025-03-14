@@ -18,9 +18,9 @@ for job in "${!pipelines[@]}"; do
     REPO_URL="${pipelines[$job]}"
     JOB_XML="$JOB_DIR/$job.xml"
 
-    echo " Створюємо пайплайн: $job (джерело: $REPO_URL)..."
+    echo "Створюємо пайплайн: $job (джерело: $REPO_URL)..."
 
-    cat <<EOF > "$JOB_XML"
+    cat > "$JOB_XML" <<EOF
 <flow-definition plugin="workflow-job">
     <actions/>
     <description>Pipeline для $job</description>
@@ -56,7 +56,7 @@ EOF
         echo "❌ Помилка створення $job"
     fi
 
-    java -jar "$CLI_JAR" -s "$JENKINS_URL" -auth "$JENKINS_USER:$JENKINS_PASSWORD" build "$job"
 done
 
-echo " Всі пайплайни створено та запущено!"
+echo "Всі пайплайни створено!"
+
