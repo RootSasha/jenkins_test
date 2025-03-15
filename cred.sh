@@ -62,9 +62,6 @@ EOF
 
 echo "✅ Groovy-скрипт для додавання SSH-ключа створено: $GROOVY_SCRIPT_PATH"
 
-echo " Публічний ключ (додай його на сервер або GitHub!):"
-echo "$SSH_PUBLIC_KEY"
-
 sudo -u jenkins mkdir -p /var/lib/jenkins/.ssh
 sudo chmod 700 /var/lib/jenkins/.ssh
 sudo chown -R jenkins:jenkins /var/lib/jenkins/.ssh
